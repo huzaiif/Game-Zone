@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GameZone - Ultimate Gaming Platform</title>
+  <link rel="stylesheet" href="game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-gamepad"></i>
+        <span>GameZone</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="leaderboards.html">Leaderboards</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="Search games..." id="searchInput">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn-login" onclick="openLoginModal()">Login</button>
+        <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to GameZone</h1>
+      <p class="hero-subtitle">The Ultimate Gaming Platform with 1000+ Games</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="scrollToGames()">Explore Games</button>
+        <button class="btn-secondary" onclick="openSignupModal()">Join Now</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">1M+</span>
+        <span class="stat-label">Active Players</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">1000+</span>
+        <span class="stat-label">Games Available</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Support</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Categories -->
+  <section class="categories">
+    <div class="container">
+      <h2 class="section-title">Game Categories</h2>
+      <div class="categories-grid">
+        <div class="category-card" onclick="filterGames('action')">
+          <div class="category-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>Action</h3>
+          <p>250+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('rpg')">
+          <div class="category-icon">
+            <i class="fas fa-dragon"></i>
+          </div>
+          <h3>RPG</h3>
+          <p>180+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('strategy')">
+          <div class="category-icon">
+            <i class="fas fa-chess"></i>
+          </div>
+          <h3>Strategy</h3>
+          <p>120+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('sports')">
+          <div class="category-icon">
+            <i class="fas fa-futbol"></i>
+          </div>
+          <h3>Sports</h3>
+          <p>90+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('racing')">
+          <div class="category-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3>Racing</h3>
+          <p>75+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('puzzle')">
+          <div class="category-icon">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <h3>Puzzle</h3>
+          <p>150+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('adventure')">
+          <div class="category-icon">
+            <i class="fas fa-map"></i>
+          </div>
+          <h3>Adventure</h3>
+          <p>200+ Games</p>
+        </div>
+        <div class="category-card" onclick="filterGames('shooter')">
+          <div class="category-icon">
+            <i class="fas fa-crosshairs"></i>
+          </div>
+          <h3>Shooter</h3>
+          <p>160+ Games</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Games -->
+  <section class="featured-games">
+    <div class="container">
+      <h2 class="section-title">Featured Games</h2>
+      <div class="games-grid" id="featuredGames">
+        <div class="game-card" data-category="action">
+          <div class="game-image">
+            <div class="game-placeholder">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="game-overlay">
+              <button class="play-btn" onclick="openGameModal('Cyber Warriors')">Play Now</button>
+            </div>
+            <div class="game-badge">Featured</div>
+          </div>
+          <div class="game-info">
+            <h3>Cyber Warriors</h3>
+            <p>Action RPG</p>
+            <div class="game-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>4.9</span>
+            </div>
+            <div class="game-stats">
+              <span><i class="fas fa-users"></i> 50K+ Players</span>
+              <span><i class="fas fa-download"></i> 1M+ Downloads</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-card" data-category="rpg">
+          <div class="game-image">
+            <div class="game-placeholder">
+              <i class="fas fa-dragon"></i>
+            </div>
+            <div class="game-overlay">
+              <button class="play-btn" onclick="openGameModal('Dragon Quest')">Play Now</button>
+            </div>
+            <div class="game-badge">New</div>
+          </div>
+          <div class="game-info">
+            <h3>Dragon Quest</h3>
+            <p>Fantasy RPG</p>
+            <div class="game-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>4.7</span>
+            </div>
+            <div class="game-stats">
+              <span><i class="fas fa-users"></i> 30K+ Players</span>
+              <span><i class="fas fa-download"></i> 500K+ Downloads</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-card" data-category="strategy">
+          <div class="game-image">
+            <div class="game-placeholder">
+              <i class="fas fa-chess"></i>
+            </div>
+            <div class="game-overlay">
+              <button class="play-btn" onclick="openGameModal('Empire Builder')">Play Now</button>
+            </div>
+            <div class="game-badge">Popular</div>
+          </div>
+          <div class="game-info">
+            <h3>Empire Builder</h3>
+            <p>Strategy</p>
+            <div class="game-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>4.8</span>
+            </div>
+            <div class="game-stats">
+              <span><i class="fas fa-users"></i> 25K+ Players</span>
+              <span><i class="fas fa-download"></i> 800K+ Downloads</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-card" data-category="racing">
+          <div class="game-image">
+            <div class="game-placeholder">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="game-overlay">
+              <button class="play-btn" onclick="openGameModal('Speed Demon')">Play Now</button>
+            </div>
+            <div class="game-badge">Trending</div>
+          </div>
+          <div class="game-info">
+            <h3>Speed Demon</h3>
+            <p>Racing</p>
+            <div class="game-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>4.6</span>
+            </div>
+            <div class="game-stats">
+              <span><i class="fas fa-users"></i> 40K+ Players</span>
+              <span><i class="fas fa-download"></i> 600K+ Downloads</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-card" data-category="shooter">
+          <div class="game-image">
+            <div class="game-placeholder">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+            <div class="game-overlay">
+              <button class="play-btn" onclick="openGameModal('Battlefield X')">Play Now</button>
+            </div>
+            <div class="game-badge">Hot</div>
+          </div>
+          <div class="game-info">
+            <h3>Battlefield X</h3>
+            <p>FPS Shooter</p>
+            <div class="game-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>4.9</span>
+            </div>
+            <div class="game-stats">
+              <span><i class="fas fa-users"></i> 80K+ Players</span>
+              <span><i class="fas fa-download"></i> 2M+ Downloads</span>
+            </div>
+          </div>
+        </div>
+        <div class="game-card" data-category="adventure">
+          <div class="game-image">
+            <div class="game-placeholder">
+              <i class="fas fa-map"></i>
+            </div>
+            <div class="game-overlay">
+              <button class="play-btn" onclick="openGameModal('Mystic Quest')">Play Now</button>
+            </div>
+            <div class="game-badge">Featured</div>
+          </div>
+          <div class="game-info">
+            <h3>Mystic Quest</h3>
+            <p>Adventure</p>
+            <div class="game-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>4.7</span>
+            </div>
+            <div class="game-stats">
+              <span><i class="fas fa-users"></i> 35K+ Players</span>
+              <span><i class="fas fa-download"></i> 700K+ Downloads</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Game Demo -->
+  <section class="game-showcase">
+    <div class="container">
+      <h2 class="section-title">Try Our Interactive Demo</h2>
+      <p class="section-subtitle">Experience the thrill of interactive gaming</p>
+      
+      <div class="game-demo">
+<div id="container">
+  <video id="gameVideo" src="intro.mp4" autoplay muted playsinline></video>
+          <div class="choices" id="choices">
+            <button class="btn" onclick="playChoice('jump')">
+              <i class="fas fa-arrow-up"></i>
+              Jump
+            </button>
+            <button class="btn" onclick="playChoice('slide')">
+              <i class="fas fa-arrow-down"></i>
+              Slide
+            </button>
+          </div>
+        </div>
+        <div class="demo-info">
+          <h3>Interactive Adventure Game</h3>
+          <p>Make split-second decisions that determine your fate. Experience the thrill of interactive storytelling where every choice matters.</p>
+          <ul class="game-features">
+            <li><i class="fas fa-check"></i> Real-time decision making</li>
+            <li><i class="fas fa-check"></i> Multiple story paths</li>
+            <li><i class="fas fa-check"></i> High-quality graphics</li>
+            <li><i class="fas fa-check"></i> Immersive sound effects</li>
+          </ul>
+          <button class="btn-primary" onclick="scrollToGames()">Explore More Games</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Games -->
+  <section class="trending-games">
+    <div class="container">
+      <h2 class="section-title">Trending This Week</h2>
+      <div class="trending-list">
+        <div class="trending-item">
+          <span class="trending-rank">1</span>
+          <div class="trending-game">
+            <div class="trending-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="trending-info">
+              <h4>Cyber Warriors</h4>
+              <p>Action RPG</p>
+            </div>
+          </div>
+          <div class="trending-stats">
+            <span class="trending-players">+15K players</span>
+          </div>
+        </div>
+        <div class="trending-item">
+          <span class="trending-rank">2</span>
+          <div class="trending-game">
+            <div class="trending-icon">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+            <div class="trending-info">
+              <h4>Battlefield X</h4>
+              <p>FPS Shooter</p>
+            </div>
+          </div>
+          <div class="trending-stats">
+            <span class="trending-players">+12K players</span>
+          </div>
+        </div>
+        <div class="trending-item">
+          <span class="trending-rank">3</span>
+          <div class="trending-game">
+            <div class="trending-icon">
+              <i class="fas fa-dragon"></i>
+            </div>
+            <div class="trending-info">
+              <h4>Dragon Quest</h4>
+              <p>Fantasy RPG</p>
+            </div>
+          </div>
+          <div class="trending-stats">
+            <span class="trending-players">+8K players</span>
+          </div>
+        </div>
+        <div class="trending-item">
+          <span class="trending-rank">4</span>
+          <div class="trending-game">
+            <div class="trending-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="trending-info">
+              <h4>Speed Demon</h4>
+              <p>Racing</p>
+            </div>
+          </div>
+          <div class="trending-stats">
+            <span class="trending-players">+6K players</span>
+          </div>
+        </div>
+        <div class="trending-item">
+          <span class="trending-rank">5</span>
+          <div class="trending-game">
+            <div class="trending-icon">
+              <i class="fas fa-chess"></i>
+            </div>
+            <div class="trending-info">
+              <h4>Empire Builder</h4>
+              <p>Strategy</p>
+            </div>
+          </div>
+          <div class="trending-stats">
+            <span class="trending-players">+5K players</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose GameZone?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Experience ultra-low latency gaming with our optimized servers worldwide.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Multiplayer Fun</h3>
+          <p>Connect with millions of players globally and compete in epic multiplayer battles.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Achievements</h3>
+          <p>Unlock achievements, earn rewards, and climb the leaderboards to prove your skills.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Cross-Platform</h3>
+          <p>Play seamlessly across all devices - PC, mobile, and console gaming in one place.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Secure Gaming</h3>
+          <p>Your data and progress are protected with enterprise-grade security measures.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Get help whenever you need it with our dedicated customer support team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-gamepad"></i>
+            <span>GameZone</span>
+          </div>
+          <p>The ultimate destination for gaming enthusiasts. Join millions of players worldwide.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Games</h4>
+          <ul>
+            <li><a href="games.html">All Games</a></li>
+            <li><a href="games.html?category=action">Action Games</a></li>
+            <li><a href="games.html?category=rpg">RPG Games</a></li>
+            <li><a href="games.html?category=strategy">Strategy Games</a></li>
+            <li><a href="games.html?category=sports">Sports Games</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community.html">Forums</a></li>
+            <li><a href="leaderboards.html">Leaderboards</a></li>
+            <li><a href="tournaments.html">Tournaments</a></li>
+            <li><a href="news.html">News & Events</a></li>
+            <li><a href="community.html">Guilds</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Bug Reports</a></li>
+            <li><a href="#">System Requirements</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameZone. All rights reserved. | Terms of Service | Privacy Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Game Modal -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeGameModal()">&times;</span>
+      <div class="modal-body">
+        <div class="modal-game-image">
+          <div class="game-placeholder">
+            <i class="fas fa-gamepad"></i>
+          </div>
+        </div>
+        <div class="modal-game-info">
+          <h2 id="modalGameTitle">Game Title</h2>
+          <p id="modalGameCategory">Category</p>
+          <div class="modal-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span>4.8/5</span>
+          </div>
+          <p id="modalGameDescription">Game description goes here...</p>
+          <div class="modal-stats">
+            <div class="stat">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Players</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">1M+</span>
+              <span class="stat-label">Downloads</span>
+            </div>
+          </div>
+          <button class="btn-primary modal-play-btn">Play Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content auth-modal">
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <div class="auth-form">
+        <h2>Login to GameZone</h2>
+        <form>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content auth-modal">
+      <span class="close" onclick="closeSignupModal()">&times;</span>
+      <div class="auth-form">
+        <h2>Join GameZone</h2>
+        <form>
+          <div class="form-group">
+            <input type="text" placeholder="Username" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+      </div>
+  </div>
+</div>
+
+<script>
+    // Game video functionality
+  const video = document.getElementById('gameVideo');
+  const choices = document.getElementById('choices');
+
+  video.addEventListener('timeupdate', () => {
+    if (video.currentTime > 5 && video.src.includes("intro")) {
+      choices.style.display = 'flex';
+    }
+  });
+
+  function playChoice(action) {
+    choices.style.display = 'none';
+    if (action === 'jump') {
+      video.src = 'jump.mp4';
+    } else if (action === 'slide') {
+      video.src = 'slide.mp4';
+    }
+    video.currentTime = 0;
+    video.play();
+  }
+
+    // Smooth scrolling
+    function scrollToGames() {
+      document.querySelector('.featured-games').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const gameCards = document.querySelectorAll('.game-card');
+      
+      gameCards.forEach(card => {
+        const gameTitle = card.querySelector('h3').textContent.toLowerCase();
+        const gameCategory = card.querySelector('p').textContent.toLowerCase();
+        
+        if (gameTitle.includes(searchTerm) || gameCategory.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Game filtering
+    function filterGames(category) {
+      const gameCards = document.querySelectorAll('.game-card');
+      gameCards.forEach(card => {
+        if (card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal functions
+    function openGameModal(gameTitle) {
+      document.getElementById('modalGameTitle').textContent = gameTitle;
+      document.getElementById('gameModal').style.display = 'block';
+    }
+
+    function closeGameModal() {
+      document.getElementById('gameModal').style.display = 'none';
+    }
+
+    function openLoginModal() {
+      document.getElementById('loginModal').style.display = 'block';
+    }
+
+    function closeLoginModal() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function openSignupModal() {
+      document.getElementById('signupModal').style.display = 'block';
+    }
+
+    function closeSignupModal() {
+      document.getElementById('signupModal').style.display = 'none';
+    }
+
+    function switchToSignup() {
+      closeLoginModal();
+      openSignupModal();
+    }
+
+    function switchToLogin() {
+      closeSignupModal();
+      openLoginModal();
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

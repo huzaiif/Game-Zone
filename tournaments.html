@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournaments - GameZone</title>
+  <link rel="stylesheet" href="game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-gamepad"></i>
+        <span>GameZone</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="tournaments.html" class="active">Tournaments</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="leaderboards.html">Leaderboards</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="Search tournaments..." id="searchInput">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn-login" onclick="openLoginModal()">Login</button>
+        <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Tournaments Header -->
+  <section class="tournaments-header">
+    <div class="container">
+      <h1 class="page-title">Tournaments & Events</h1>
+      <p class="page-subtitle">Compete with the best players worldwide</p>
+      
+      <!-- Tournament Stats -->
+      <div class="tournament-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Active Tournaments</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">10K+</span>
+            <span class="stat-label">Participants</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">$100K+</span>
+            <span class="stat-label">Prize Pool</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Tournament -->
+  <section class="featured-tournament">
+    <div class="container">
+      <h2 class="section-title">Featured Tournament</h2>
+      <div class="tournament-card featured">
+        <div class="tournament-image">
+          <div class="tournament-placeholder">
+            <i class="fas fa-crown"></i>
+          </div>
+          <div class="tournament-badge">Grand Championship</div>
+        </div>
+        <div class="tournament-info">
+          <h3>Cyber Warriors Championship</h3>
+          <p class="tournament-game">Action RPG Tournament</p>
+          <div class="tournament-details">
+            <div class="detail">
+              <i class="fas fa-calendar"></i>
+              <span>Dec 15-20, 2024</span>
+            </div>
+            <div class="detail">
+              <i class="fas fa-users"></i>
+              <span>1,024 Players</span>
+            </div>
+            <div class="detail">
+              <i class="fas fa-dollar-sign"></i>
+              <span>$50,000 Prize Pool</span>
+            </div>
+            <div class="detail">
+              <i class="fas fa-clock"></i>
+              <span>Registration Open</span>
+            </div>
+          </div>
+          <div class="tournament-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+            <span class="progress-text">750/1,024 Players Registered</span>
+          </div>
+          <button class="btn-primary">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tournament Categories -->
+  <section class="tournament-categories">
+    <div class="container">
+      <h2 class="section-title">Tournament Categories</h2>
+      <div class="categories-grid">
+        <div class="category-card" onclick="filterTournaments('action')">
+          <div class="category-icon">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3>Action Games</h3>
+          <p>15 Tournaments</p>
+        </div>
+        <div class="category-card" onclick="filterTournaments('rpg')">
+          <div class="category-icon">
+            <i class="fas fa-dragon"></i>
+          </div>
+          <h3>RPG Games</h3>
+          <p>12 Tournaments</p>
+        </div>
+        <div class="category-card" onclick="filterTournaments('strategy')">
+          <div class="category-icon">
+            <i class="fas fa-chess"></i>
+          </div>
+          <h3>Strategy Games</h3>
+          <p>8 Tournaments</p>
+        </div>
+        <div class="category-card" onclick="filterTournaments('shooter')">
+          <div class="category-icon">
+            <i class="fas fa-crosshairs"></i>
+          </div>
+          <h3>Shooter Games</h3>
+          <p>10 Tournaments</p>
+        </div>
+        <div class="category-card" onclick="filterTournaments('racing')">
+          <div class="category-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <h3>Racing Games</h3>
+          <p>5 Tournaments</p>
+        </div>
+        <div class="category-card" onclick="filterTournaments('sports')">
+          <div class="category-icon">
+            <i class="fas fa-futbol"></i>
+          </div>
+          <h3>Sports Games</h3>
+          <p>7 Tournaments</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Tournaments -->
+  <section class="active-tournaments">
+    <div class="container">
+      <h2 class="section-title">Active Tournaments</h2>
+      <div class="tournaments-grid" id="tournamentsGrid">
+        <div class="tournament-card" data-category="action">
+          <div class="tournament-image">
+            <div class="tournament-placeholder">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="tournament-badge">Live</div>
+          </div>
+          <div class="tournament-info">
+            <h3>Battle Royale Championship</h3>
+            <p class="tournament-game">Action Tournament</p>
+            <div class="tournament-details">
+              <div class="detail">
+                <i class="fas fa-calendar"></i>
+                <span>Dec 10-12, 2024</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-users"></i>
+                <span>256 Players</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$10,000 Prize</span>
+              </div>
+            </div>
+            <div class="tournament-status">
+              <span class="status-badge live">Live Now</span>
+            </div>
+            <button class="btn-secondary">Watch Live</button>
+          </div>
+        </div>
+        
+        <div class="tournament-card" data-category="rpg">
+          <div class="tournament-image">
+            <div class="tournament-placeholder">
+              <i class="fas fa-dragon"></i>
+            </div>
+            <div class="tournament-badge">Starting Soon</div>
+          </div>
+          <div class="tournament-info">
+            <h3>Fantasy Quest League</h3>
+            <p class="tournament-game">RPG Tournament</p>
+            <div class="tournament-details">
+              <div class="detail">
+                <i class="fas fa-calendar"></i>
+                <span>Dec 18-22, 2024</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-users"></i>
+                <span>128 Players</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$5,000 Prize</span>
+              </div>
+            </div>
+            <div class="tournament-status">
+              <span class="status-badge upcoming">Starting in 2 days</span>
+            </div>
+            <button class="btn-primary">Register</button>
+          </div>
+        </div>
+        
+        <div class="tournament-card" data-category="strategy">
+          <div class="tournament-image">
+            <div class="tournament-placeholder">
+              <i class="fas fa-chess"></i>
+            </div>
+            <div class="tournament-badge">Registration</div>
+          </div>
+          <div class="tournament-info">
+            <h3>Empire Builder Masters</h3>
+            <p class="tournament-game">Strategy Tournament</p>
+            <div class="tournament-details">
+              <div class="detail">
+                <i class="fas fa-calendar"></i>
+                <span>Dec 25-30, 2024</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-users"></i>
+                <span>64 Players</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$3,000 Prize</span>
+              </div>
+            </div>
+            <div class="tournament-status">
+              <span class="status-badge registration">Registration Open</span>
+            </div>
+            <button class="btn-primary">Register</button>
+          </div>
+        </div>
+        
+        <div class="tournament-card" data-category="shooter">
+          <div class="tournament-image">
+            <div class="tournament-placeholder">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+            <div class="tournament-badge">Live</div>
+          </div>
+          <div class="tournament-info">
+            <h3>FPS Pro League</h3>
+            <p class="tournament-game">Shooter Tournament</p>
+            <div class="tournament-details">
+              <div class="detail">
+                <i class="fas fa-calendar"></i>
+                <span>Dec 8-14, 2024</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-users"></i>
+                <span>512 Players</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$15,000 Prize</span>
+              </div>
+            </div>
+            <div class="tournament-status">
+              <span class="status-badge live">Live Now</span>
+            </div>
+            <button class="btn-secondary">Watch Live</button>
+          </div>
+        </div>
+        
+        <div class="tournament-card" data-category="racing">
+          <div class="tournament-image">
+            <div class="tournament-placeholder">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="tournament-badge">Starting Soon</div>
+          </div>
+          <div class="tournament-info">
+            <h3>Speed Demon Cup</h3>
+            <p class="tournament-game">Racing Tournament</p>
+            <div class="tournament-details">
+              <div class="detail">
+                <i class="fas fa-calendar"></i>
+                <span>Dec 20-22, 2024</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-users"></i>
+                <span>32 Players</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$2,000 Prize</span>
+              </div>
+            </div>
+            <div class="tournament-status">
+              <span class="status-badge upcoming">Starting in 5 days</span>
+            </div>
+            <button class="btn-primary">Register</button>
+          </div>
+        </div>
+        
+        <div class="tournament-card" data-category="sports">
+          <div class="tournament-image">
+            <div class="tournament-placeholder">
+              <i class="fas fa-futbol"></i>
+            </div>
+            <div class="tournament-badge">Registration</div>
+          </div>
+          <div class="tournament-info">
+            <h3>Sports Arena Championship</h3>
+            <p class="tournament-game">Sports Tournament</p>
+            <div class="tournament-details">
+              <div class="detail">
+                <i class="fas fa-calendar"></i>
+                <span>Jan 5-10, 2025</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-users"></i>
+                <span>128 Players</span>
+              </div>
+              <div class="detail">
+                <i class="fas fa-dollar-sign"></i>
+                <span>$4,000 Prize</span>
+              </div>
+            </div>
+            <div class="tournament-status">
+              <span class="status-badge registration">Registration Open</span>
+            </div>
+            <button class="btn-primary">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-gamepad"></i>
+            <span>GameZone</span>
+          </div>
+          <p>The ultimate destination for gaming enthusiasts. Join millions of players worldwide.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Games</h4>
+          <ul>
+            <li><a href="games.html">All Games</a></li>
+            <li><a href="games.html?category=action">Action Games</a></li>
+            <li><a href="games.html?category=rpg">RPG Games</a></li>
+            <li><a href="games.html?category=strategy">Strategy Games</a></li>
+            <li><a href="games.html?category=sports">Sports Games</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community.html">Forums</a></li>
+            <li><a href="leaderboards.html">Leaderboards</a></li>
+            <li><a href="tournaments.html">Tournaments</a></li>
+            <li><a href="news.html">News & Events</a></li>
+            <li><a href="community.html">Guilds</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Bug Reports</a></li>
+            <li><a href="#">System Requirements</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameZone. All rights reserved. | Terms of Service | Privacy Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tournament filtering
+    function filterTournaments(category) {
+      const tournamentCards = document.querySelectorAll('.tournament-card');
+      tournamentCards.forEach(card => {
+        if (card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const tournamentCards = document.querySelectorAll('.tournament-card');
+      
+      tournamentCards.forEach(card => {
+        const tournamentTitle = card.querySelector('h3').textContent.toLowerCase();
+        const tournamentGame = card.querySelector('.tournament-game').textContent.toLowerCase();
+        
+        if (tournamentTitle.includes(searchTerm) || tournamentGame.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

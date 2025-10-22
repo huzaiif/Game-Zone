@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community - GameZone</title>
+  <link rel="stylesheet" href="game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-gamepad"></i>
+        <span>GameZone</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="community.html" class="active">Community</a></li>
+        <li><a href="leaderboards.html">Leaderboards</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="Search community..." id="searchInput">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn-login" onclick="openLoginModal()">Login</button>
+        <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Community Header -->
+  <section class="community-header">
+    <div class="container">
+      <h1 class="page-title">Community Hub</h1>
+      <p class="page-subtitle">Connect with fellow gamers, share strategies, and build lasting friendships</p>
+      
+      <!-- Community Stats -->
+      <div class="community-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">1M+</span>
+            <span class="stat-label">Community Members</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Daily Posts</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users-cog"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Active Guilds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Features -->
+  <section class="community-features">
+    <div class="container">
+      <h2 class="section-title">Community Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Forums</h3>
+          <p>Join discussions about your favorite games, share tips, and get help from the community.</p>
+          <button class="btn-secondary">Visit Forums</button>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Guilds</h3>
+          <p>Create or join guilds to team up with like-minded players and participate in group activities.</p>
+          <button class="btn-secondary">Explore Guilds</button>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-share-alt"></i>
+          </div>
+          <h3>Share Content</h3>
+          <p>Share your gameplay highlights, screenshots, and achievements with the community.</p>
+          <button class="btn-secondary">Share Now</button>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <h3>Get Help</h3>
+          <p>Ask questions, get game guides, and receive support from experienced players.</p>
+          <button class="btn-secondary">Ask Question</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Discussions -->
+  <section class="popular-discussions">
+    <div class="container">
+      <h2 class="section-title">Popular Discussions</h2>
+      <div class="discussions-grid">
+        <div class="discussion-card">
+          <div class="discussion-header">
+            <div class="discussion-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <div class="discussion-info">
+              <h3>Cyber Warriors Strategy Guide</h3>
+              <p>Action Games Forum</p>
+            </div>
+            <div class="discussion-stats">
+              <span class="replies">245 replies</span>
+              <span class="views">2.1K views</span>
+            </div>
+          </div>
+          <div class="discussion-content">
+            <p>Share your best strategies and tips for dominating in Cyber Warriors. What's your go-to loadout?</p>
+          </div>
+          <div class="discussion-footer">
+            <div class="author">
+              <i class="fas fa-user"></i>
+              <span>ProGamer2024</span>
+            </div>
+            <div class="time">
+              <i class="fas fa-clock"></i>
+              <span>2 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="discussion-card">
+          <div class="discussion-header">
+            <div class="discussion-icon">
+              <i class="fas fa-dragon"></i>
+            </div>
+            <div class="discussion-info">
+              <h3>Dragon Quest Build Recommendations</h3>
+              <p>RPG Games Forum</p>
+            </div>
+            <div class="discussion-stats">
+              <span class="replies">189 replies</span>
+              <span class="views">1.8K views</span>
+            </div>
+          </div>
+          <div class="discussion-content">
+            <p>Looking for the best character builds for different playstyles. What's working for you?</p>
+          </div>
+          <div class="discussion-footer">
+            <div class="author">
+              <i class="fas fa-user"></i>
+              <span>RPGMaster</span>
+            </div>
+            <div class="time">
+              <i class="fas fa-clock"></i>
+              <span>4 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="discussion-card">
+          <div class="discussion-header">
+            <div class="discussion-icon">
+              <i class="fas fa-chess"></i>
+            </div>
+            <div class="discussion-info">
+              <h3>Empire Builder Tournament Prep</h3>
+              <p>Strategy Games Forum</p>
+            </div>
+            <div class="discussion-stats">
+              <span class="replies">156 replies</span>
+              <span class="views">1.5K views</span>
+            </div>
+          </div>
+          <div class="discussion-content">
+            <p>Preparing for the upcoming tournament. Let's discuss optimal strategies and team compositions.</p>
+          </div>
+          <div class="discussion-footer">
+            <div class="author">
+              <i class="fas fa-user"></i>
+              <span>StrategyPro</span>
+            </div>
+            <div class="time">
+              <i class="fas fa-clock"></i>
+              <span>6 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="discussion-card">
+          <div class="discussion-header">
+            <div class="discussion-icon">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+            <div class="discussion-info">
+              <h3>Battlefield X Weapon Tier List</h3>
+              <p>Shooter Games Forum</p>
+            </div>
+            <div class="discussion-stats">
+              <span class="replies">312 replies</span>
+              <span class="views">3.2K views</span>
+            </div>
+          </div>
+          <div class="discussion-content">
+            <p>Updated weapon tier list based on the latest patch. What do you think about the balance changes?</p>
+          </div>
+          <div class="discussion-footer">
+            <div class="author">
+              <i class="fas fa-user"></i>
+              <span>FPSExpert</span>
+            </div>
+            <div class="time">
+              <i class="fas fa-clock"></i>
+              <span>8 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="discussion-card">
+          <div class="discussion-header">
+            <div class="discussion-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="discussion-info">
+              <h3>Speed Demon Racing Tips</h3>
+              <p>Racing Games Forum</p>
+            </div>
+            <div class="discussion-stats">
+              <span class="replies">98 replies</span>
+              <span class="views">1.2K views</span>
+            </div>
+          </div>
+          <div class="discussion-content">
+            <p>Share your best racing techniques and car setups for different tracks.</p>
+          </div>
+          <div class="discussion-footer">
+            <div class="author">
+              <i class="fas fa-user"></i>
+              <span>SpeedRacer</span>
+            </div>
+            <div class="time">
+              <i class="fas fa-clock"></i>
+              <span>12 hours ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="discussion-card">
+          <div class="discussion-header">
+            <div class="discussion-icon">
+              <i class="fas fa-futbol"></i>
+            </div>
+            <div class="discussion-info">
+              <h3>Sports Arena Team Building</h3>
+              <p>Sports Games Forum</p>
+            </div>
+            <div class="discussion-stats">
+              <span class="replies">167 replies</span>
+              <span class="views">1.9K views</span>
+            </div>
+          </div>
+          <div class="discussion-content">
+            <p>Looking for teammates for the upcoming Sports Arena championship. What positions are you playing?</p>
+          </div>
+          <div class="discussion-footer">
+            <div class="author">
+              <i class="fas fa-user"></i>
+              <span>SportsFan</span>
+            </div>
+            <div class="time">
+              <i class="fas fa-clock"></i>
+              <span>1 day ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guild Spotlight -->
+  <section class="guild-spotlight">
+    <div class="container">
+      <h2 class="section-title">Guild Spotlight</h2>
+      <div class="guilds-grid">
+        <div class="guild-card">
+          <div class="guild-header">
+            <div class="guild-icon">
+              <i class="fas fa-crown"></i>
+            </div>
+            <div class="guild-info">
+              <h3>Elite Warriors</h3>
+              <p>Action Games Guild</p>
+            </div>
+            <div class="guild-level">
+              <span class="level">Level 25</span>
+            </div>
+          </div>
+          <div class="guild-stats">
+            <div class="stat">
+              <span class="stat-number">1,250</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">45</span>
+              <span class="stat-label">Tournaments Won</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Win Rate</span>
+            </div>
+          </div>
+          <div class="guild-description">
+            <p>Elite Warriors is a competitive guild focused on action games. We're looking for skilled players to join our ranks.</p>
+          </div>
+          <button class="btn-primary">Join Guild</button>
+        </div>
+
+        <div class="guild-card">
+          <div class="guild-header">
+            <div class="guild-icon">
+              <i class="fas fa-dragon"></i>
+            </div>
+            <div class="guild-info">
+              <h3>Mystic Legends</h3>
+              <p>RPG Games Guild</p>
+            </div>
+            <div class="guild-level">
+              <span class="level">Level 22</span>
+            </div>
+          </div>
+          <div class="guild-stats">
+            <div class="stat">
+              <span class="stat-number">980</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">32</span>
+              <span class="stat-label">Tournaments Won</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">95%</span>
+              <span class="stat-label">Win Rate</span>
+            </div>
+          </div>
+          <div class="guild-description">
+            <p>Mystic Legends is a friendly guild for RPG enthusiasts. We help each other grow and explore fantasy worlds together.</p>
+          </div>
+          <button class="btn-primary">Join Guild</button>
+        </div>
+
+        <div class="guild-card">
+          <div class="guild-header">
+            <div class="guild-icon">
+              <i class="fas fa-chess"></i>
+            </div>
+            <div class="guild-info">
+              <h3>Strategic Minds</h3>
+              <p>Strategy Games Guild</p>
+            </div>
+            <div class="guild-level">
+              <span class="level">Level 20</span>
+            </div>
+          </div>
+          <div class="guild-stats">
+            <div class="stat">
+              <span class="stat-number">750</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">28</span>
+              <span class="stat-label">Tournaments Won</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">92%</span>
+              <span class="stat-label">Win Rate</span>
+            </div>
+          </div>
+          <div class="guild-description">
+            <p>Strategic Minds focuses on tactical gameplay and strategic thinking. Perfect for players who love planning and execution.</p>
+          </div>
+          <button class="btn-primary">Join Guild</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-gamepad"></i>
+            <span>GameZone</span>
+          </div>
+          <p>The ultimate destination for gaming enthusiasts. Join millions of players worldwide.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Games</h4>
+          <ul>
+            <li><a href="games.html">All Games</a></li>
+            <li><a href="games.html?category=action">Action Games</a></li>
+            <li><a href="games.html?category=rpg">RPG Games</a></li>
+            <li><a href="games.html?category=strategy">Strategy Games</a></li>
+            <li><a href="games.html?category=sports">Sports Games</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community.html">Forums</a></li>
+            <li><a href="leaderboards.html">Leaderboards</a></li>
+            <li><a href="tournaments.html">Tournaments</a></li>
+            <li><a href="news.html">News & Events</a></li>
+            <li><a href="community.html">Guilds</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Bug Reports</a></li>
+            <li><a href="#">System Requirements</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameZone. All rights reserved. | Terms of Service | Privacy Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const discussionCards = document.querySelectorAll('.discussion-card');
+      const guildCards = document.querySelectorAll('.guild-card');
+      
+      [...discussionCards, ...guildCards].forEach(card => {
+        const cardText = card.textContent.toLowerCase();
+        if (cardText.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

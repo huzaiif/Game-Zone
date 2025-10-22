@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Games Catalog - GameZone</title>
+  <link rel="stylesheet" href="game.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-gamepad"></i>
+        <span>GameZone</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html" class="active">Games</a></li>
+        <li><a href="tournaments.html">Tournaments</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="leaderboards.html">Leaderboards</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="Search games..." id="searchInput">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="nav-buttons">
+        <button class="btn-login" onclick="openLoginModal()">Login</button>
+        <button class="btn-signup" onclick="openSignupModal()">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Games Header -->
+  <section class="games-header">
+    <div class="container">
+      <h1 class="page-title">Games Catalog</h1>
+      <p class="page-subtitle">Discover 1000+ amazing games across all genres</p>
+      
+      <!-- Filters -->
+      <div class="filters">
+        <div class="filter-group">
+          <label>Category:</label>
+          <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="action">Action</option>
+            <option value="rpg">RPG</option>
+            <option value="strategy">Strategy</option>
+            <option value="sports">Sports</option>
+            <option value="racing">Racing</option>
+            <option value="puzzle">Puzzle</option>
+            <option value="adventure">Adventure</option>
+            <option value="shooter">Shooter</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Sort by:</label>
+          <select id="sortFilter">
+            <option value="popular">Most Popular</option>
+            <option value="newest">Newest</option>
+            <option value="rating">Highest Rated</option>
+            <option value="name">Name A-Z</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Price:</label>
+          <select id="priceFilter">
+            <option value="">All Prices</option>
+            <option value="free">Free</option>
+            <option value="paid">Paid</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Grid -->
+  <section class="games-catalog">
+    <div class="container">
+      <div class="games-grid" id="gamesGrid">
+        <!-- Games will be dynamically loaded here -->
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="pagination-btn" onclick="changePage(-1)">Previous</button>
+        <div class="pagination-numbers" id="paginationNumbers"></div>
+        <button class="pagination-btn" onclick="changePage(1)">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-gamepad"></i>
+            <span>GameZone</span>
+          </div>
+          <p>The ultimate destination for gaming enthusiasts. Join millions of players worldwide.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Games</h4>
+          <ul>
+            <li><a href="games.html">All Games</a></li>
+            <li><a href="games.html?category=action">Action Games</a></li>
+            <li><a href="games.html?category=rpg">RPG Games</a></li>
+            <li><a href="games.html?category=strategy">Strategy Games</a></li>
+            <li><a href="games.html?category=sports">Sports Games</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="community.html">Forums</a></li>
+            <li><a href="leaderboards.html">Leaderboards</a></li>
+            <li><a href="tournaments.html">Tournaments</a></li>
+            <li><a href="news.html">News & Events</a></li>
+            <li><a href="community.html">Guilds</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Bug Reports</a></li>
+            <li><a href="#">System Requirements</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 GameZone. All rights reserved. | Terms of Service | Privacy Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Game Modal -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeGameModal()">&times;</span>
+      <div class="modal-body">
+        <div class="modal-game-image">
+          <div class="game-placeholder">
+            <i class="fas fa-gamepad"></i>
+          </div>
+        </div>
+        <div class="modal-game-info">
+          <h2 id="modalGameTitle">Game Title</h2>
+          <p id="modalGameCategory">Category</p>
+          <div class="modal-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span>4.8/5</span>
+          </div>
+          <p id="modalGameDescription">Game description goes here...</p>
+          <div class="modal-stats">
+            <div class="stat">
+              <span class="stat-number">50K+</span>
+              <span class="stat-label">Players</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">1M+</span>
+              <span class="stat-label">Downloads</span>
+            </div>
+          </div>
+          <button class="btn-primary modal-play-btn">Play Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Game data
+    const gamesData = [
+      { id: 1, title: "Cyber Warriors", category: "action", rating: 4.9, players: "50K+", downloads: "1M+", price: "free", badge: "Featured" },
+      { id: 2, title: "Dragon Quest", category: "rpg", rating: 4.7, players: "30K+", downloads: "500K+", price: "paid", badge: "New" },
+      { id: 3, title: "Empire Builder", category: "strategy", rating: 4.8, players: "25K+", downloads: "800K+", price: "free", badge: "Popular" },
+      { id: 4, title: "Speed Demon", category: "racing", rating: 4.6, players: "40K+", downloads: "600K+", price: "paid", badge: "Trending" },
+      { id: 5, title: "Battlefield X", category: "shooter", rating: 4.9, players: "80K+", downloads: "2M+", price: "free", badge: "Hot" },
+      { id: 6, title: "Mystic Quest", category: "adventure", rating: 4.7, players: "35K+", downloads: "700K+", price: "paid", badge: "Featured" },
+      { id: 7, title: "Puzzle Master", category: "puzzle", rating: 4.5, players: "20K+", downloads: "400K+", price: "free", badge: "New" },
+      { id: 8, title: "Soccer Pro", category: "sports", rating: 4.4, players: "45K+", downloads: "900K+", price: "paid", badge: "Popular" },
+      { id: 9, title: "Space Explorer", category: "adventure", rating: 4.6, players: "28K+", downloads: "550K+", price: "free", badge: "Trending" },
+      { id: 10, title: "Magic Duel", category: "strategy", rating: 4.8, players: "32K+", downloads: "650K+", price: "paid", badge: "Hot" },
+      { id: 11, title: "Ninja Assassin", category: "action", rating: 4.7, players: "38K+", downloads: "750K+", price: "free", badge: "New" },
+      { id: 12, title: "Fantasy Realm", category: "rpg", rating: 4.9, players: "55K+", downloads: "1.2M+", price: "paid", badge: "Featured" },
+      { id: 13, title: "Racing Thunder", category: "racing", rating: 4.5, players: "42K+", downloads: "850K+", price: "free", badge: "Popular" },
+      { id: 14, title: "Zombie Apocalypse", category: "shooter", rating: 4.6, players: "48K+", downloads: "950K+", price: "paid", badge: "Trending" },
+      { id: 15, title: "Brain Teaser", category: "puzzle", rating: 4.3, players: "22K+", downloads: "350K+", price: "free", badge: "New" },
+      { id: 16, title: "Basketball Stars", category: "sports", rating: 4.4, players: "35K+", downloads: "680K+", price: "paid", badge: "Popular" },
+      { id: 17, title: "Treasure Hunt", category: "adventure", rating: 4.7, players: "29K+", downloads: "520K+", price: "free", badge: "Hot" },
+      { id: 18, title: "War Strategy", category: "strategy", rating: 4.8, players: "41K+", downloads: "780K+", price: "paid", badge: "Featured" },
+      { id: 19, title: "Combat Zone", category: "action", rating: 4.6, players: "46K+", downloads: "920K+", price: "free", badge: "Trending" },
+      { id: 20, title: "Epic Journey", category: "rpg", rating: 4.9, players: "62K+", downloads: "1.5M+", price: "paid", badge: "Hot" }
+    ];
+
+    let currentPage = 1;
+    const gamesPerPage = 12;
+    let filteredGames = [...gamesData];
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      loadGames();
+      setupFilters();
+      setupSearch();
+    });
+
+    function loadGames() {
+      const startIndex = (currentPage - 1) * gamesPerPage;
+      const endIndex = startIndex + gamesPerPage;
+      const gamesToShow = filteredGames.slice(startIndex, endIndex);
+      
+      const gamesGrid = document.getElementById('gamesGrid');
+      gamesGrid.innerHTML = '';
+      
+      gamesToShow.forEach(game => {
+        const gameCard = createGameCard(game);
+        gamesGrid.appendChild(gameCard);
+      });
+      
+      updatePagination();
+    }
+
+    function createGameCard(game) {
+      const card = document.createElement('div');
+      card.className = 'game-card';
+      card.setAttribute('data-category', game.category);
+      
+      const categoryIcons = {
+        action: 'fas fa-fire',
+        rpg: 'fas fa-dragon',
+        strategy: 'fas fa-chess',
+        sports: 'fas fa-futbol',
+        racing: 'fas fa-car',
+        puzzle: 'fas fa-puzzle-piece',
+        adventure: 'fas fa-map',
+        shooter: 'fas fa-crosshairs'
+      };
+      
+      card.innerHTML = `
+        <div class="game-image">
+          <div class="game-placeholder">
+            <i class="${categoryIcons[game.category]}"></i>
+          </div>
+          <div class="game-overlay">
+            <button class="play-btn" onclick="openGameModal('${game.title}')">Play Now</button>
+          </div>
+          <div class="game-badge">${game.badge}</div>
+        </div>
+        <div class="game-info">
+          <h3>${game.title}</h3>
+          <p>${game.category.charAt(0).toUpperCase() + game.category.slice(1)}</p>
+          <div class="game-rating">
+            ${generateStars(game.rating)}
+            <span>${game.rating}</span>
+          </div>
+          <div class="game-stats">
+            <span><i class="fas fa-users"></i> ${game.players} Players</span>
+            <span><i class="fas fa-download"></i> ${game.downloads} Downloads</span>
+          </div>
+          <div class="game-price">
+            ${game.price === 'free' ? '<span class="free-badge">FREE</span>' : '<span class="price">$9.99</span>'}
+          </div>
+        </div>
+      `;
+      
+      return card;
+    }
+
+    function generateStars(rating) {
+      let stars = '';
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = rating % 1 >= 0.5;
+      
+      for (let i = 0; i < fullStars; i++) {
+        stars += '<i class="fas fa-star"></i>';
+      }
+      
+      if (hasHalfStar) {
+        stars += '<i class="fas fa-star-half-alt"></i>';
+      }
+      
+      const emptyStars = 5 - Math.ceil(rating);
+      for (let i = 0; i < emptyStars; i++) {
+        stars += '<i class="far fa-star"></i>';
+      }
+      
+      return stars;
+    }
+
+    function setupFilters() {
+      const categoryFilter = document.getElementById('categoryFilter');
+      const sortFilter = document.getElementById('sortFilter');
+      const priceFilter = document.getElementById('priceFilter');
+      
+      categoryFilter.addEventListener('change', applyFilters);
+      sortFilter.addEventListener('change', applyFilters);
+      priceFilter.addEventListener('change', applyFilters);
+    }
+
+    function setupSearch() {
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', applyFilters);
+    }
+
+    function applyFilters() {
+      const categoryFilter = document.getElementById('categoryFilter').value;
+      const sortFilter = document.getElementById('sortFilter').value;
+      const priceFilter = document.getElementById('priceFilter').value;
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      
+      filteredGames = gamesData.filter(game => {
+        const matchesCategory = !categoryFilter || game.category === categoryFilter;
+        const matchesPrice = !priceFilter || game.price === priceFilter;
+        const matchesSearch = !searchTerm || game.title.toLowerCase().includes(searchTerm);
+        
+        return matchesCategory && matchesPrice && matchesSearch;
+      });
+      
+      // Sort games
+      switch(sortFilter) {
+        case 'newest':
+          filteredGames.sort((a, b) => b.id - a.id);
+          break;
+        case 'rating':
+          filteredGames.sort((a, b) => b.rating - a.rating);
+          break;
+        case 'name':
+          filteredGames.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        default: // popular
+          filteredGames.sort((a, b) => parseInt(b.players) - parseInt(a.players));
+      }
+      
+      currentPage = 1;
+      loadGames();
+    }
+
+    function changePage(direction) {
+      const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+      
+      if (direction === -1 && currentPage > 1) {
+        currentPage--;
+      } else if (direction === 1 && currentPage < totalPages) {
+        currentPage++;
+      }
+      
+      loadGames();
+    }
+
+    function updatePagination() {
+      const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+      const paginationNumbers = document.getElementById('paginationNumbers');
+      
+      paginationNumbers.innerHTML = '';
+      
+      for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = `pagination-number ${i === currentPage ? 'active' : ''}`;
+        pageBtn.textContent = i;
+        pageBtn.onclick = () => {
+          currentPage = i;
+          loadGames();
+        };
+        paginationNumbers.appendChild(pageBtn);
+      }
+    }
+
+    // Modal functions
+    function openGameModal(gameTitle) {
+      document.getElementById('modalGameTitle').textContent = gameTitle;
+      document.getElementById('gameModal').style.display = 'block';
+    }
+
+    function closeGameModal() {
+      document.getElementById('gameModal').style.display = 'none';
+    }
+
+    function openLoginModal() {
+      // Implementation for login modal
+    }
+
+    function openSignupModal() {
+      // Implementation for signup modal
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('gameModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
