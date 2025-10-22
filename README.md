@@ -1,4 +1,4 @@
-🕹️ Game-Zone
+<h1>🕹️ Game-Zone</h1>
 
 Game-Zone is an online gaming web platform designed to provide an engaging and interactive experience for players.
 It brings together multiple fun browser-based games under one clean, responsive interface.
